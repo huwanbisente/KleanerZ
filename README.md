@@ -1,25 +1,29 @@
-# 🧹 KLeanerZ (Project KleanerZ)
-### *Cleaning but make it aesthetic.*
+<h1 align="center">KLeanerZ</h1>
 
-**KLeanerZ** is a modern, Gen-Z focused gig-economy platform for residential cleaning services. Built with a high-transparency, "Claim-and-Go" model, it connects clients looking for a space refresh with professional cleaners looking for flexible, fair-pay opportunities.
+<p align="center">
+  A modern, Gen-Z focused gig-economy platform for residential cleaning services, using a "Claim-and-Go" model.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Author-Jan%20Vincent%20Chioco-red?style=flat-square" alt="Author">
+  <img src="https://img.shields.io/badge/Frontend-Next.js%20%2B%20React-green?style=flat-square" alt="Frontend">
+  <img src="https://img.shields.io/badge/Backend-FastAPI%20%2B%20Python-blue?style=flat-square&logo=python&logoColor=white" alt="Backend">
+  <img src="https://img.shields.io/badge/Database-SQLite%20%2B%20SQLAlchemy-lightgrey?style=flat-square" alt="Database">
+</p>
 
 ---
 
-## 🚀 Vision & Key Features
+*   If you find this project impressive for a portfolio, please consider giving it a star!
 
-KLeanerZ isn't just a booking app; it's a "Mission-based" ecosystem designed for speed and visual trust.
+**KLeanerZ** is a high-transparency marketplace designed for the next generation of clients and cleaners. It replaces traditional, slow booking systems with a real-time "Quest Board" where cleaners can instantly claim jobs, and clients can track progress through visual "Proof of Work" (Before/After photos).
 
-- **⚡ The Pulse (WebSockets)**: Real-time "Quest Board" updates. Cleaners see new opportunities instantly without refreshing.
-- **🛡️ Secure Auth**: JWT-based authentication with role-based dashboards (Client vs. Kleaner).
-- **📍 Smart Geocoding**: Integrated mapping for precise location tracking and demand heatmaps.
-- **📸 Proof of Work**: Visual verification system for job completion and quality control.
-- **💎 Premium UI**: Dark-mode terminal aesthetic with neon accents and high-contrast visuals.
+The system features robust **Role-Based Access Control (RBAC)**, real-time updates via **WebSockets**, and a curated "Cyber-Terminal" aesthetic.
 
 ---
 
 ## 🏗️ System Architecture
 
-KLeanerZ uses a modern decoupled architecture designed for high concurrency and real-time state management.
+KLeanerZ utilizes a decoupled architecture to ensure real-time performance and scalability of the "Quest" lifecycle.
 
 ```mermaid
 graph TD
@@ -55,6 +59,8 @@ graph TD
 
 ### 🔄 The Quest Lifecycle Flow
 
+The "Claim-and-Go" engine handles race conditions ensures the first-come, first-served logic.
+
 ```mermaid
 sequenceDiagram
     participant Client
@@ -75,62 +81,77 @@ sequenceDiagram
 
 ---
 
-## 💻 Tech Stack
+## � User Interface
 
-- **Frontend**: `Next.js 16`, `React 19`, `TailwindCSS` (Design Tokens), `Lucide icons`.
-- **Backend**: `Python 3.10+`, `FastAPI`, `Uvicorn`, `PyJWT`.
-- **Database**: `SQLAlchemy ORM`, `SQLite` (MVP).
-- **Maps**: `React-Leaflet`, `OpenStreetMap (Nominatim)`.
+The application features a modern "Cyber-Terminal" dark theme with neon accents, optimized for both desktop and mobile PWA usage.
+
+### Landing & Discovery
+High-conversion landing page with role-selection for Clients and KleanerZ.
+![Landing Page](frontend/public/screenshots/landing.png)
+
+### Quest Board (Kleaner View)
+Real-time feed of available jobs with map integration and instant claiming.
+![Quest Board](frontend/public/screenshots/quest_board.png)
+
+### Client Management Dashboard
+Track active jobs, review applicants, and release payments upon approval.
+![Client Dashboard](frontend/public/screenshots/client_dash.png)
+
+### Real-Time Messaging
+In-app communication between participants once a quest is active.
+![Messaging](frontend/public/screenshots/messaging.png)
 
 ---
 
-## 📸 Screenshots
+## ⚡ Features
 
-| Landing Page | Client Dashboard |
-| :--- | :--- |
-| ![Landing](/public/screenshots/landing.png) | ![Client](/public/screenshots/client_dash.png) |
-
-| Kleaner Board | Real-time Messaging |
-| :--- | :--- |
-| ![Board](/public/screenshots/quest_board.png) | ![Chat](/public/screenshots/messaging.png) |
+*   **The Pulse (WebSockets)**: Instant job broadcasting to all nearby cleaners.
+*   **Proof of Work**: Visual verification system (Before/After photos) for transparency.
+*   **Smart Geocoding**: Automatic address verification and demand heatmapping via Leaflet.
+*   **Wallet System**: Integrated earnings tracking and automated payment release flow.
+*   **Role-Based Security**: Secure JWT authentication with 24h session tokens.
+*   **PWA Ready**: Installable on home screens for a native mobile experience.
 
 ---
 
-## 🛠️ Getting Started
+## 🛠️ Requirements
 
-### Prerequisites
-- Python 3.10+
-- Node.js 18+
-- Git
+*   **Python**: 3.10+
+*   **Node.js**: 18.x or higher
+*   **Database**: SQLite (built-in) or PostgreSQL
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/yourusername/KLeanerZ.git
-cd KLeanerZ
-```
+---
 
-### 2. Backend Setup
-```bash
-cd backend
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-python scripts/setup_test_data.py # Seeds the DB with demo data
-uvicorn main:app --reload
-```
+## 🚀 Installation & Setup
 
-### 3. Frontend Setup
-```bash
-cd ../frontend
-npm install
-npm run dev
-```
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/huwanbisente/KleanerZ.git
+   cd KleanerZ
+   ```
+
+2. **Backend Setup**:
+   ```bash
+   cd backend
+   python -m venv .venv
+   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   pip install -r requirements.txt
+   python scripts/setup_test_data.py # Seeds the DB with demo accounts
+   uvicorn main:app --reload
+   ```
+
+3. **Frontend Setup**:
+   ```bash
+   cd ../frontend
+   npm install
+   npm run dev
+   ```
 
 ---
 
 ## 🔑 Demo Access
 
-To quickly explore the different platform perspectives, use these pre-seeded credentials:
+Explore the platform perspectives using these pre-seeded demo accounts:
 
 | Role | Email | Password |
 | :--- | :--- | :--- |
@@ -139,7 +160,19 @@ To quickly explore the different platform perspectives, use these pre-seeded cre
 
 ---
 
-## 📄 License & Contact
-Distributed under the MIT License. See `LICENSE` for more information.
+## � Project Structure
 
-**Project Link**: [https://github.com/yourusername/KLeanerZ](https://github.com/yourusername/KLeanerZ)
+```text
+├── backend/                # FastAPI Application
+│   ├── core/               # Auth & WebSockets
+│   ├── models/             # SQLAlchemy Models
+│   ├── routers/            # API Endpoints
+│   ├── schemas/            # Pydantic Types
+│   └── scripts/            # Seed & Utility Scripts
+├── frontend/               # Next.js Application
+│   ├── src/
+│   │   ├── components/     # UI Design System
+│   │   ├── pages/          # Dashboards & Auth
+│   │   └── utils/          # API Handlers
+└── README.md
+```
